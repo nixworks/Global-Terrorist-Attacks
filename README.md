@@ -1,1 +1,1 @@
-# GlobalTerrioristAttacks
+# Global Terrorist Attacks
