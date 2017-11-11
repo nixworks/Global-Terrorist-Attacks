@@ -34,7 +34,7 @@ Our target goal for this analysis are to better understand where these attacks t
 
 ## Data description
 
-The data was made available through the Global Terrorism Database (GTD) which is an open-source database including information on terrorist attacks around the world from 1970 through 2016 (with annual updates planned for the future). [More information] (https://www.start.umd.edu/gtd/).
+The data was made available through the Global Terrorism Database (GTD) which is an open-source database including information on terrorist attacks around the world from 1970 through 2016 (with annual updates planned for the future). [More information](https://www.start.umd.edu/gtd/).
 
 Context: Information on more than 17,000 Terrorist Attacks 
 
@@ -44,7 +44,4 @@ Unit of analysis: Attack
 
 Variables: >100 variables on location, tactics, perpetrators, targets, and outcomes
 
-For detailed information about the data, such as data collection methodology, definitions and coding schema. See the [description] (http://start.umd.edu/gtd/downloads/Codebook.pdf) in the Global Terrorism Database site.
-
-
-
+For detailed information about the data, such as data collection methodology, definitions and coding schema. See the [description](http://start.umd.edu/gtd/downloads/Codebook.pdf) in the Global Terrorism Database site.
