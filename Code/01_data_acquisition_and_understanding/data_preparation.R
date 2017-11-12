@@ -8,6 +8,7 @@ library(dplyr)
 library(Amelia)
 library(ggplot2)
 library(DT)
+library(tidyr)
 
 ## Parse and read data in memory 
 
@@ -68,12 +69,12 @@ datatable(attacks_subset %>%
 ### These countries has the highest number of attacks compared to the rest of the world. 
 
 
-#### 3. Which Terrorist organisations are respobsible for these attacks ?
+#### 3. Are these attempts mostly succeed of fail ?
 
 
-Lets have a look into the top '10' terrirost organisations who are resposible for these attacks. 
+#### 4. Which Terrorist organisations are respobsible for those attacks ?
 
-
+## Table of frequency of attacks by a terrorist organization
 datatable(attacks_subset %>% 
             group_by(gname) %>% 
             summarise(total_attempts = n()) %>%
@@ -81,12 +82,19 @@ datatable(attacks_subset %>%
             arrange(desc(total_attempts)) %>%
             head(10) %>%
             filter(organisation != "Unknown"))
+#### Interpretation: We see that Taliban had the highest activities followed by ISIS and Al-Shabaab 
 
 
-* We can see that Taliban had the highest number of attempts '5498'
+attacks_subset %>% filter(iyear >= 2005) %>% 
+  select(year = iyear,success) %>% group_by(year) %>% 
+  summarise(Succeeded = length(success[success == 1]), Failed= length(success[success == 0])) %>% 
+  gather(status,count, -year) %>% 
+  ggplot(aes(year,count, fill=factor(status, levels=c("Succeeded","Failed")))) + 
+  geom_bar(stat = "identity") + scale_x_continuous("Year", breaks = seq(2005,2016,1), expand = c(0,0)) + 
+  scale_y_continuous(expand = c(0,0)) + scale_fill_brewer("Status", palette = "Set3") + 
+  ggtitle("Succeeded vs failed attempts over the past decade") + theme_light()
 
-
-
+#### Interpretation: unfortunately we see that majority of the attempts succeed in all the years 
 
 
 
